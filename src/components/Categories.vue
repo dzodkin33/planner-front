@@ -5,14 +5,14 @@
             <!--Categories list-->
             <div class='category-list' v-for="(category, index) in categories" :key="index">
                 <a class='category'>
-                    <a class='category-color' :style="'--category-color: ' + category.groupColor.color">
-                        <v-menu v-model="menu" top nudge-bottom="105" nudge-left="16" :close-on-content-click="false">
+                    <a class='category-color'>
+                        <v-menu top nudge-bottom="105" nudge-left="16" :close-on-content-click="false">
                             <template v-slot:activator="{ on }">
                                 <div v-on="on" />
                             </template>
                             <v-card>
                                 <v-card-text class="pa-0">
-                                    <v-color-picker v-model="color" flat />
+                                    <v-color-picker flat />
                                 </v-card-text>
                             </v-card>
                         </v-menu>

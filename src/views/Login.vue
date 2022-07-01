@@ -32,8 +32,8 @@ export default {
     methods: {
         async submit() {
             await axios.post('login', {
-                email: this.email, 
-                passwrd: this.password,
+                email: this.email,
+                password: this.password
             });
 
             await this.$router.push('/app');

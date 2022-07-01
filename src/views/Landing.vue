@@ -16,11 +16,15 @@
                                 class="nav-link px-2 text-black">About</a></li>
                     </ul>
 
-                    <div class="text-end">
+                    <div v-if='user == null' class="text-end" :user='user'>
                         <button type="button" class="btn btn-outline-light me-2"
-                            onclick="window.location.href = '/login'">Login</button>
+                            onclick="window.location.href = '/app'">Login</button>
                         <button type="button" class="btn btn-warning"
                             onclick="window.location.href = '/register'">Sign-up</button>
+                    </div>
+                    <div v-else class="text-end">
+                        <button type="button" class="btn btn-warning" onclick="window.location.href = '/app'">Welcome,
+                            {{user.user_name}}</button>
                     </div>
                 </div>
             </div>
@@ -52,9 +56,27 @@
 </template>
 
 
-<script lang = 'ts'>
+<script>
+import axios from 'axios'
 export default {
-    name: 'Landing'
+    
+    name: 'Landing', 
+
+    data() {
+        return {
+            user: null,
+        }
+    },
+
+    async mounted() {
+        try {
+            const {data} = await axios.get('user');
+            this.user = data;
+        } catch (e) {
+        }
+    }
+
+
 }
 </script>
 

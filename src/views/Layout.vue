@@ -31,6 +31,17 @@ export   default {
         Categories,
         Task,
         Tasklist
+    },
+
+    async mounted() {
+        //! Commented out for development purpouses (I can't be fucked to 
+        // config databse just to edit html)
+        try {
+            const response = await axios.get('user');
+        } catch (e) {
+            await this.$router.push('/')
+        }
+
     }
 }
 </script>
