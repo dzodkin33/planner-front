@@ -22,8 +22,6 @@ export default Vue.extend({
           margin: 0;
           height: 100%;
           max-height: 100%;
-          overflow-x: hidden;
-          overflow-y: hidden;
           background: #EFECEC;
     
           font-family: 'Inter';

@@ -5445,6 +5445,16 @@ uuid@^8.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
+v-calendar-1.0@^2.2.14:
+  version "2.2.14"
+  resolved "https://registry.yarnpkg.com/v-calendar-1.0/-/v-calendar-1.0-2.2.14.tgz#33f7c5006d2df5f36afd8ffd7ed7f67343ae14ea"
+  integrity sha512-trMX99t4Bx1rxZlylZNm5Rhb2GbQIpFgowRWZabvNwESn/NEuG0mczFC9x1cyn2FnYHK9wHGdBtjtS5DT7EXug==
+  dependencies:
+    core-js "^3.6.5"
+    date-fns "^2.8.1"
+    date-fns-tz "^1.0.12"
+    lodash "4.17.20"
+
 v-calendar@^3.0.0-alpha.8:
   version "3.0.0-alpha.8"
   resolved "https://registry.yarnpkg.com/v-calendar/-/v-calendar-3.0.0-alpha.8.tgz#3bc8c69f4788fb527c39706f41fd2a502a17c827"

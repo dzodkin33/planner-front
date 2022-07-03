@@ -11,7 +11,6 @@ library.add(faGithub)
 
 Vue.config.productionTip = false;
 
-// ! THIS MUST BE CHANGED THAT IT WOULD INTAKE faGithub ICON
 const CUSTOM_ICONS = {
     button: { // used for the nav-icon by vuetify
         component: FontAwesomeIcon,

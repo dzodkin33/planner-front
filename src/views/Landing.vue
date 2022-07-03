@@ -16,11 +16,12 @@
                                 class="nav-link px-2 text-black">About</a></li>
                     </ul>
 
-                    <div v-if='user == null' class="text-end" :user='user'>
-                        <button type="button" class="btn btn-outline-light me-2"
-                            onclick="window.location.href = '/app'">Login</button>
-                        <button type="button" class="btn btn-warning"
-                            onclick="window.location.href = '/register'">Sign-up</button>
+                    <!--Buttons-->
+                    <div v-if='user.user_name ==  null' class="text-end" :user='user'>
+                        <v-btn type="button" class="btn btn-outline-light me-2" onclick="window.location.href = '/app'">
+                            Login</v-btn>
+                        <v-btn type="button" onclick="window.location.href = '/register'">
+                            Sign-up</v-btn>
                     </div>
                     <div v-else class="text-end">
                         <button type="button" class="btn btn-warning" onclick="window.location.href = '/app'">Welcome,
@@ -57,14 +58,16 @@
 
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import {User} from '@/models/user';
+
 export default {
     
     name: 'Landing', 
 
     data() {
         return {
-            user: null,
+            user: new User(),
         }
     },
 

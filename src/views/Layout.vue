@@ -14,32 +14,47 @@
             <div class="task-wrapper">
                 <Task />
             </div>
+
+            <div class ="nav-wrapper">
+                    <Nav :user = "user"/>
+            </div>
         </div>
     </v-app>
 </template>
 
 <script>
+import Nav from '@/components/Nav.vue'
 import Calendar from '@/components/Calendar.vue'
 import Categories from '@/components/Categories.vue'
 import Task from '@/components/Task.vue'
 import Tasklist from '@/components/Tasklist.vue'
+import axios from 'axios'
+import {User} from '@/models/user'
 
 export   default {
     name: 'Layout',
     components: {
+        Nav,
         Calendar,
         Categories,
         Task,
         Tasklist
     },
 
+    data() {
+        return {
+            user: new User()
+        }
+    },
+
     async mounted() {
         //! Commented out for development purpouses (I can't be fucked to 
         // config databse just to edit html)
         try {
-            const response = await axios.get('user');
+            const {data} = await axios.get('user');
+            this.user = data;
         } catch (e) {
-            await this.$router.push('/')
+            //await this.$router.push('/')
         }
 
     }
@@ -50,8 +65,7 @@ export   default {
 html,
 body {
     max-height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    max-width: 100%;
     background: #EFECEC;
 }
 
@@ -61,7 +75,7 @@ body {
     height: 100%;
 
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 0.01fr 0.5fr 1fr;
     grid-template-columns: 1fr 2fr 1fr;
 }
 /* Calendar */
@@ -72,7 +86,7 @@ body {
     height: 100%;
     line-height: 39px;
     grid-column: 1 / 2;
-    grid-row: 1/2;
+    grid-row: 2/3;
 
 }
 
@@ -96,21 +110,28 @@ body {
 .component-bar {
     background: #EFECEC;
     grid-column: 1 / 2;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
 }
 
-/* Task Lisr */
+/* Task List */
 .task-list-wrapper {
-    background: #D7D5D5;
+    background: #EFECEC;
     grid-column: 2 / 3;
-    grid-row: 1 / 3;
+    grid-row: 2 / 4;
 }
 
 /* Task */
 .task-wrapper {
     background: #D9D9D9;
     grid-column: 3 / 4;
-    grid-row: 1 / 3;
+    grid-row: 2 / 4;
+}
+
+/** Nav */
+
+.nav-wrapper {
+    grid-column: 1/4;
+    grid-row: 1/2;
 }
 
 
