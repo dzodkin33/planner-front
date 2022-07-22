@@ -17,6 +17,8 @@
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "font-awesome": "^4.7.0",
+    "lodash": "^4.17.21",
+    "terser": "^5.14.2",
     "v-calendar": "^3.0.0-alpha.8",
     "v-calendar-1.0": "^2.2.14",
     "vue": "^2.6.14",
