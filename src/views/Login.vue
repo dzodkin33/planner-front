@@ -1,14 +1,14 @@
 <template>
     <main class="form-signin w-100 m-auto">
-        <form @submit.prevent = 'submit'>
+        <form @submit.prevent='submit'>
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
-                <input v-model = 'email' type="email" class="form-control" placeholder="name@example.com">
-                <label>Email address</label>
+                <input v-model='email' class="form-control" placeholder="name@example.com">
+                <label>Email address or username</label>
             </div>
             <div class="form-floating">
-                <input v-model= 'password' type="password" class="form-control" placeholder="Password">
+                <input v-model='password' type="password" class="form-control" placeholder="Password">
                 <label>Password</label>
             </div>
 
@@ -31,12 +31,24 @@ export default {
 
     methods: {
         async submit() {
-            await axios.post('login', {
-                email: this.email,
-                password: this.password
-            });
+            if (this.validateEmail(this.email)) {
+                await axios.post('login', {
+                    email: this.email,
+                    password: this.password
+                });
+            } else {
+                await axios.post('login', {
+                    username: this.email,
+                    password: this.password
+                });
+            }
 
             await this.$router.push('/app');
+        },
+        
+        validateEmail(value) {
+            let validation_result = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value);
+            return validation_result
         }
     }
 }

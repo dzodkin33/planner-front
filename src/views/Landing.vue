@@ -18,7 +18,7 @@
 
                     <!--Buttons-->
                     <div v-if='user.user_name ==  null' class="text-end" :user='user'>
-                        <v-btn type="button" class="btn btn-outline-light me-2" onclick="window.location.href = '/app'">
+                        <v-btn type="button" class="btn btn-outline-light me-2" onclick="window.location.href = '/login'">
                             Login</v-btn>
                         <v-btn type="button" onclick="window.location.href = '/register'">
                             Sign-up</v-btn>
